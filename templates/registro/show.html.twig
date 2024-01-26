@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block body %}
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('app_registro_index') }}">Registros</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> {{  registro.slug }} </li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-8">
+                <div class="card border-dark mt-3" style="max-width: 100%">
+                    <div class="card-header">Datos personales</div>
+                    <div class="card-body text-dark">
+                        <h5 class="card-title">{{ registro.nombre }} </h5>
+                        <p class="card-text">
+                            <strong> {{ registro.correo }} </strong> <br>
+                        </p>
+
+                        <p class="card-text">
+                            <strong>  {{ registro.etapa }}  </strong> <br>
+                        </p>
+
+                        <p class="card-text">
+                            <strong>  {{ registro.profesor }}  </strong> <br>
+                        </p>
+                        <p class="card-text">
+                            <strong>  {{ registro.pais }}  </strong> <br>
+                        </p>
+                        <p class="card-text">
+                            <strong>  {{ registro.publicaciones }} </strong> <br>
+                        </p>
+                        <p class="card-text">
+                            <strong>  {{ registro.proyectos }} </strong> <br>
+                        </p>
+
+                        <p class="card-text">
+                            {% if registro.viaje == true %}
+                                <i class="fas fa-check-square text-success"></i> Puede viajar
+                            {% else %}
+                                <i class="fas fa-times-square text-danger"></i> No puede viajar
+                            {%endif %}
+                        </p>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-8">
+                <div class="card border-dark mt-3" style="max-width: 100%">
+                    <div class="card-header">Información de control</div>
+                    <div class="card-body text-dark">
+                        <p class="card-text">
+                        <address>
+                            <strong>Registrado:</strong> {{ registro.created |format_date('long',locale='es')}}  <br>
+                            <strong>Modificado:</strong> {{ registro.modified |format_date('long',locale='es')}}
+                            <hr>
+                            <p> {{registro.comentarios}} </p>
+
+                            <div {{ stimulus_controller('modal-form', {
+                                formUrl: path('app_registro_evaluacion',{'slug':registro.slug})
+                            }) }}>
+                                <button
+                                        class="btn btn-primary btn-sm"
+                                        data-action="modal-form#openModal"
+                                >Agregar comentarios</button>
+                                {{ include('registro/_modal.html.twig', {
+                                    modalTitle: 'Agregar comentarios',
+                                }) }}
+                            </div>
+                        </address>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

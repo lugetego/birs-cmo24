@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registros{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+{% endblock %}
+
+{% block body %}
+
+{#     {% if is_granted('ROLE_ADMIN') %}#}
+        <div class="container-fluid">
+            <div class="container">
+                <button type="button" class="btn btn-light">
+                    Registros <span class="badge bg-dark">{{ registros|length }}</span>
+                </button>
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <u>Correos</u> <span class="badge bg-primary">{{ registros|length }}</span>
+                </button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Correos registrados</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% set total = 0 %}
+                            {% for registro in registros %}
+                                {{registro.correo}}
+                                    {% if not loop.last %},{% endif %}
+                                    {% set total = total + 1 %}
+                            {% endfor %}
+                            <p>
+                                <br> {{ total }} correos
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    <table id="example" class="mt-5 table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Etapa</th>
+                <th>Profesor</th>
+                <th>Pais</th>
+                <th>Publicaciones</th>
+                <th>Proyectos</th>
+                <th>Viaje</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for registro in registros %}
+            <tr>
+                <td><a href="{{ path('app_registro_show', {'slug': registro.slug}) }}">{{ registro.nombre }}</a></td>
+                <td>{{ registro.correo }}</td>
+                <td>{{ registro.etapa }}</td>
+                <td>{{ registro.profesor }}</td>
+                <td>{{ registro.pais }}</td>
+                <td>{{ registro.publicaciones }}</td>
+                <td>{{ registro.proyectos }}</td>
+                <td>{{ registro.viaje ? 'Yes' : 'No' }}</td>
+
+
+                <td>
+                    <a href="{{ path('app_registro_show', {'slug': registro.slug}) }}"><i class="bi bi-search"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{#{% endif %}#}
+{% endblock %}
+ {% block javascripts %}
+     {{ parent() }}
+     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
+     <script type="application/javascript">
+         $(document).ready(function() {
+             $('#example').DataTable();
+         } );
+     </script>
+
+ {% endblock %}

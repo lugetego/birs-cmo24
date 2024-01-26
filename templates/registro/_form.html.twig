@@ -1,0 +1,129 @@
+{{ form_start(form) }}
+<div class="container">
+    <div class="alert alert-light " role="alert">
+        <h4 class="alert-heading"><i class="fa-solid fa-triangle-exclamation"></i> Importante</h4>
+        <ul class="pt-2">
+            <li><p>Instrucciones</p></li>
+
+        </ul>
+        <hr>
+        <p class="mb-0">
+            <i class="fa-solid fa-calendar"></i> Fecha límite para realizar tu registro: <mark>xx de xxxxx de 2024</mark>.
+        </p>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-4">
+            <label for="nombre" class="form-label">{{ form_label(form.nombre) }}</label>
+            {{ form_widget(form.nombre,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'Nombre',
+                } } ) }}
+            <div class="invalid-error">
+                {{ form_errors(form.nombre) }}
+            </div>
+        </div>
+        <div class="col-4">
+            <label for="email" class="form-label">{{ form_label(form.correo) }}</label>
+            {{ form_widget(form.correo,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'user@example.com',
+                } } ) }}
+            <div class="invalid-error">
+                {{ form_errors(form.correo) }}
+            </div>
+        </div>
+        <div class="col-4">
+            <label for="etapa" class="form-label">{{ form_label(form.etapa) }}</label>
+            {{ form_widget(form.etapa,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'Etapa',
+                } } ) }}
+            <div class="invalid-error">
+                {{ form_errors(form.etapa) }}
+            </div>
+        </div>
+        <div class="col-8">
+            <label for="profesor" class="form-label">{{ form_label(form.profesor) }}</label>
+            {{ form_widget(form.profesor,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'Profesor',
+                } } ) }}
+            <div class="invalid-error">
+                {{ form_errors(form.profesor) }}
+            </div>
+        </div>
+        <div class="col-4">
+            <label for="pais" class="form-label">{{ form_label(form.pais) }}</label>
+            {{ form_widget(form.pais,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'País',
+                } } ) }}
+            <div class="invalid-error">
+                {{ form_errors(form.pais) }}
+            </div>
+        </div>
+        <div class="col-8">
+            <label for="publicaciones" class="form-label">{{ form_label(form.publicaciones) }}</label>
+            {{ form_widget(form.publicaciones,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'Lista de publicaciones',
+                    'style':'height: 100px;'
+
+                } } ) }}
+            <div class="invalid-error">
+                {{ form_errors(form.publicaciones) }}
+            </div>
+        </div>
+        <div class="col-8">
+            <label for="proyectos" class="form-label">{{ form_label(form.proyectos) }}</label>
+            {{ form_widget(form.proyectos,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'Lista de los 3 temas de proyectos preferidos',
+                    'style':'height: 80px;'
+                } } ) }}
+
+
+            <div class="invalid-error">
+                {{ form_errors(form.proyectos) }}
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-3">
+
+
+        <div class="col-8">
+            <label for="newsletter" class="form-label">{{ form_label(form.viaje) }}</label>
+            <div>
+                {% for child in form.viaje %}
+                    <div class="form-check form-check-inline">
+                        {{ form_widget(child) }}  {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="invalid-error">
+                {{ form_errors(form.viaje) }}
+            </div>
+        </div>
+        {#<div class="col-8">
+            <label for="viaje" class="form-label">{{ form_label(form.viaje) }}</label>
+            <div>
+                {% for child in form.viaje %}
+                    <div class="form-check form-check-inline">
+                        {{ form_widget(child) }}  {{ form_label(child, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="invalid-error">
+                {{ form_errors(form.viaje) }}
+            </div>
+        </div>#}
+
+
+
+
+    {{ form_widget(form) }}
+    <button class="mt-5 mb-5 w-100 btn btn-primary btn-lg">{{ button_label|default('Save') }}</button>
+
+        {{ form_end(form) }}

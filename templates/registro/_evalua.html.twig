@@ -1,0 +1,26 @@
+
+{% block header %}{% endblock  %}
+{% block lang %}{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'action': path('app_registro_evaluacion', { 'slug': registro.slug})}) }}
+    <div class="row ">
+        <div class="col-12 mt-2">
+            <label for="comentarios" class="form-label">{{ form_label(form.comentarios) }}</label>
+            <div>
+                {{ form_widget(form.comentarios,{
+                    'attr': {'class': 'form-control',
+                        'placeholder': 'Comentarios sobre el registro',
+                        'rows':'5',
+                    } } ) }}
+            </div>
+            <div class="invalid-error">
+                {{ form_errors(form.comentarios) }}
+            </div>
+        </div>
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-primary btn-lg">{{ button_label|default('Agregar comentarios') }}</button>
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
