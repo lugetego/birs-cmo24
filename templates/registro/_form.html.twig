@@ -1,14 +1,14 @@
 {{ form_start(form) }}
 <div class="container">
     <div class="alert alert-light " role="alert">
-        <h4 class="alert-heading"><i class="fa-solid fa-triangle-exclamation"></i> Importante</h4>
+        <h4 class="alert-heading"><i class="bi bi-info-circle"></i> Importante</h4>
         <ul class="pt-2">
             <li><p>Instrucciones</p></li>
 
         </ul>
         <hr>
         <p class="mb-0">
-            <i class="fa-solid fa-calendar"></i> Fecha límite para realizar tu registro: <mark>xx de xxxxx de 2024</mark>.
+            <i class="bi bi-calendar-check"></i> Fecha límite para realizar tu registro: <mark>xx de xxxxx de 2024</mark>.
         </p>
     </div>
 
@@ -91,8 +91,6 @@
 
     </div>
     <div class="row mt-3">
-
-
         <div class="col-8">
             <label for="newsletter" class="form-label">{{ form_label(form.viaje) }}</label>
             <div>
@@ -124,6 +122,6 @@
 
 
     {{ form_widget(form) }}
-    <button class="mt-5 mb-5 w-100 btn btn-primary btn-lg">{{ button_label|default('Save') }}</button>
+    <button class="mt-5 mb-5 w-100 btn btn-primary btn-lg"><i class="bi bi-send-fill"></i> {{ button_label|default('Enviar') }}</button>
 
         {{ form_end(form) }}
