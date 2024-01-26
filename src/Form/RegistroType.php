@@ -8,12 +8,22 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Intl\Countries;
+
 
 class RegistroType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
+
+        $countries = Countries::getNames();
+
+        foreach($countries as $country =>  $name) {
+
+            $countries2[$name] = $name;
+        }
+
+            $builder
             ->add('nombre')
             ->add('etapa', ChoiceType::class,[
                 'choices'  => [
@@ -26,7 +36,12 @@ class RegistroType extends AbstractType
                 'label'=> 'Etapa profesional']
             )
             ->add('profesor',null,['label'=>'Nombre del supervisor de doctorado o mentor postdoctoral'])
-            ->add('pais',CountryType::class,['placeholder' => 'Seleccionar','label'=>'País'])
+                ->add('pais', ChoiceType::class, [
+                    'choices' => $countries2,
+                    'label'=>'País de residencia',
+                    'placeholder'  => 'Seleccionar'
+                    ,
+                ])
             ->add('publicaciones',null,['label'=>'Lista de publicaciones'])
             ->add('proyectos',null,['label'=>'Listade los 3 temas de proyectos preferidos, en el orden de preferencia'])
             ->add('viaje', ChoiceType::class, [
