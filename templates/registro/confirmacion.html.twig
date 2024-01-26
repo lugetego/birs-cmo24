@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block lang %}{% endblock %}
+{% block body %}
+    <div class="container bg-light">
+        <div class="card mt-5">
+            <h5 class="card-header">{{"Gracias por su registro"|trans}}</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{ registro.nombre }}</h5>
+                <p class="card-text">{{ "Recibirá un correo de confirmación a la dirección que nos proporcionó"|trans }}: <i>{{ registro.correo }}</i></p>
+                <p class="card-text">{{ "Si no recibe el correo de confirmación debe verificar en su bandeja de correos no deseados, si no lo ha recibido debe escribir a"|trans }} webmaster<i class="fas fa-at"></i>matmor.unam.mx {{"para confirmar su registro"|trans}}</p>
+                <a href="{{ url_evento }}" class="btn btn-primary">{{"Finalizar"|trans}}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

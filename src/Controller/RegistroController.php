@@ -48,7 +48,10 @@ class RegistroController extends AbstractController
 
             $mailer->send($message);
 
-            return $this->redirectToRoute('app_registro_index', [], Response::HTTP_SEE_OTHER);
+           // return $this->redirectToRoute('app_registro_index', [], Response::HTTP_SEE_OTHER);
+            return $this->render('registro/confirmacion.html.twig', [
+                'registro' => $registro,
+            ]);
         }
 
         return $this->renderForm('registro/new.html.twig', [
