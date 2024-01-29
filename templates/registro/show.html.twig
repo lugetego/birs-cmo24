@@ -19,6 +19,9 @@
                         <p class="card-text">
                             <strong> {{ registro.correo }} </strong> <br>
                         </p>
+                        <p class="card-text">
+                            <strong>  {{ registro.pais }}  </strong> <br>
+                        </p>
 
                         <p class="card-text">
                             <strong>  {{ registro.etapa }}  </strong> <br>
@@ -27,9 +30,7 @@
                         <p class="card-text">
                             <strong>  {{ registro.profesor }}  </strong> <br>
                         </p>
-                        <p class="card-text">
-                            <strong>  {{ registro.pais }}  </strong> <br>
-                        </p>
+
                         <p class="card-text">
                             <strong>  {{ registro.publicaciones }} </strong> <br>
                         </p>
@@ -39,7 +40,7 @@
 
                         <p class="card-text">
                             {% if registro.viaje == true %}
-                                <i class="fas fa-check-square text-success"></i> Puede viajar
+                                <i class="fas fa-check-square text-success"></i> Puede viajar con {{ registro.monto }} USD
                             {% else %}
                                 <i class="fas fa-times-square text-danger"></i> No puede viajar
                             {%endif %}
