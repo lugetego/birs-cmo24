@@ -165,9 +165,32 @@ class Registro
     private $created;
 
     /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $monto;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modified;
+
+
+    /**
+     * @return mixed
+     */
+    public function getMonto()
+    {
+        return $this->monto;
+    }
+
+    /**
+     * @param mixed $monto
+     */
+    public function setMonto($monto): void
+    {
+        $this->monto = $monto;
+    }
+
 
     public function getId(): ?int
     {

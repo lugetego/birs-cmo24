@@ -46,8 +46,8 @@ class RegistroType extends AbstractType
             ->add('proyectos',null,['label'=>'Listade los 3 temas de proyectos preferidos, en el orden de preferencia'])
             ->add('viaje', ChoiceType::class, [
                 'choices'  => [
-                    'Sí' => 'Si',
-                    'No' => 'No',
+                    'Sí' => true,
+                    'No' => false,
                 ],
                 'expanded' => true,
                 'placeholder' => 'Seleccionar',
@@ -58,6 +58,9 @@ class RegistroType extends AbstractType
             ->add('correo', null, array(
                 'label'=>'Correo electrónico',
             ))
+            ->add('monto', null, array(
+                    'label'=>'Monto en USD',
+                ))
 
         ;
     }
