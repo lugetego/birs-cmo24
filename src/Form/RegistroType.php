@@ -59,7 +59,7 @@ class RegistroType extends AbstractType
                 'label'=>'Correo electrónico',
             ))
             ->add('monto', null, array(
-                    'label'=>'Monto que solicta en USD',
+                    'label'=>'Monto que solicita en USD',
                 ))
 
         ;

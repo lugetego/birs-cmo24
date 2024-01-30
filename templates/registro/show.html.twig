@@ -40,9 +40,9 @@
 
                         <p class="card-text">
                             {% if registro.viaje == true %}
-                                <i class="fas fa-check-square text-success"></i> Puede viajar con {{ registro.monto }} USD
+                                <i class="fas fa-check-square text-success"></i> Puede viajar por su cuenta
                             {% else %}
-                                <i class="fas fa-times-square text-danger"></i> No puede viajar
+                                <i class="fas fa-times-square text-danger"></i> No puede viajar, solicita {{ registro.monto }} USD
                             {%endif %}
                         </p>
 
