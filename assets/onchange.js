@@ -7,7 +7,7 @@ document.getElementById("div_registro_monto").hidden = true;
 document.getElementById("registro_viaje_0").addEventListener(
     "click",
     () => {
-        if ( elm0.checked ) {
+        if ( elm1.checked ) {
             document.getElementById("div_registro_monto").hidden = false;
             console.log(monto.value);
             monto.value= null;
@@ -23,7 +23,7 @@ document.getElementById("registro_viaje_0").addEventListener(
 document.getElementById("registro_viaje_1").addEventListener(
     "click",
     () => {
-        if ( elm1.checked ) {
+        if ( elm0.checked ) {
             document.getElementById("div_registro_monto").hidden = true;
             console.log(monto.value);
             monto.value= null;
