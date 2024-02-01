@@ -6,6 +6,7 @@ use App\Entity\Registro;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Intl\Countries;
@@ -35,6 +36,10 @@ class RegistroType extends AbstractType
                 'placeholder' => 'Seleccionar',
                 'label'=> 'Etapa profesional']
             )
+            ->add('nacimiento',DateType::class, [
+                'widget' => 'single_text',
+                'label'=> 'Fecha de nacimiento'
+            ])
             ->add('profesor',null,['label'=>'Nombre del supervisor de doctorado o mentor postdoctoral'])
                 ->add('pais', ChoiceType::class, [
                     'choices' => $countries2,
@@ -43,7 +48,7 @@ class RegistroType extends AbstractType
                     ,
                 ])
             ->add('publicaciones',null,['label'=>'Lista de publicaciones'])
-            ->add('proyectos',null,['label'=>'Listade los 3 temas de proyectos preferidos, en el orden de preferencia'])
+            ->add('proyectos',null,['label'=>'Lista de los 3 temas de proyectos preferidos, en el orden de preferencia'])
             ->add('viaje', ChoiceType::class, [
                 'choices'  => [
                     'Sí' => true,

@@ -42,6 +42,12 @@ class Registro
     private $nombre;
 
     /**
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank()
+     */
+    private $nacimiento;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      */
@@ -318,6 +324,18 @@ class Registro
     public function setComentarios(?string $comentarios): self
     {
         $this->comentarios = $comentarios;
+
+        return $this;
+    }
+
+    public function getNacimiento(): ?\DateTimeInterface
+    {
+        return $this->nacimiento;
+    }
+
+    public function setNacimiento(\DateTimeInterface $nacimiento): self
+    {
+        $this->nacimiento = $nacimiento;
 
         return $this;
     }

@@ -22,6 +22,19 @@
                 {{ form_errors(form.nombre) }}
             </div>
         </div>
+
+        <div class="col-4">
+            <label for="nacimiento" class="form-label">{{ form_label(form.nacimiento) }}</label>
+            {{ form_widget(form.nacimiento,{
+                'attr': {'class': 'form-control',
+                    'placeholder': 'Fecha de nacimiento',
+                } } ) }}
+            <div class="invalid-error">
+                {{ form_errors(form.nacimiento) }}
+            </div>
+
+
+        </div>
         <div class="col-4">
             <label for="email" class="form-label">{{ form_label(form.correo) }}</label>
             {{ form_widget(form.correo,{

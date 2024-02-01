@@ -16,25 +16,31 @@
                     <div class="card-header">Datos personales</div>
                     <div class="card-body text-dark">
                         <h5 class="card-title">{{ registro.nombre }} </h5>
+
+
                         <p class="card-text">
                             <strong> {{ registro.correo }} </strong> <br>
+                            {% set edad = date().diff(date(registro.nacimiento)).y %}
+                            {{ registro.nacimiento |format_date('long',locale='es') }}, <small><em> {{ edad }} años</em></small>
                         </p>
                         <p class="card-text">
-                            <strong>  {{ registro.pais }}  </strong> <br>
-                        </p>
-
-                        <p class="card-text">
-                            <strong>  {{ registro.etapa }}  </strong> <br>
+                            País: <strong> {{ registro.pais }}  </strong> <br>
                         </p>
 
                         <p class="card-text">
-                            <strong>  {{ registro.profesor }}  </strong> <br>
+                           Etapa profesional: <strong>  {{ registro.etapa }}  </strong> <br>
                         </p>
 
                         <p class="card-text">
+                            Supervisor o mentor: <strong>  {{ registro.profesor }}  </strong> <br>
+                        </p>
+
+                        <p class="card-text">
+                            Publicaciones:<br>
                             <strong>  {{ registro.publicaciones|nl2br }} </strong> <br>
                         </p>
                         <p class="card-text">
+                            Temas preferidos:<br>
                             <strong>  {{ registro.proyectos|nl2br}} </strong> <br>
                         </p>
 
@@ -42,7 +48,7 @@
                             {% if registro.viaje == true %}
                                 <i class="fas fa-check-square text-success"></i> Puede viajar por su cuenta
                             {% else %}
-                                <i class="fas fa-times-square text-danger"></i> No puede viajar, solicita {{ registro.monto }} USD
+                                <i class="fas fa-times-square text-danger"></i> No puede viajar por su cuenta, solicita {{ registro.monto }} USD
                             {%endif %}
                         </p>
 
