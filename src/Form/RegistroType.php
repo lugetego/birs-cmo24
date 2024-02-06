@@ -62,7 +62,7 @@ class RegistroType extends AbstractType
             ->add('monto', null, array(
                     'label'=>'Monto que solicita en USD',
             ))
-            ->add('razones',null,['label'=>'Razones por las que desa asistir al evento'])
+            ->add('razones',null,['label'=>'¿Por qué quieres asistir a este taller?'])
 
 
         ;
