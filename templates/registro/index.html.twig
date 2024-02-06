@@ -49,7 +49,6 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Edad (años)</th>
                 <th>Correo</th>
                 <th>Etapa</th>
                 <th>Profesor</th>
@@ -63,10 +62,8 @@
         </thead>
         <tbody>
         {% for registro in registros %}
-            {% set edad = date().diff(date(registro.nacimiento)).y %}
             <tr>
                 <td><a href="{{ path('app_registro_show', {'slug': registro.slug}) }}">{{ registro.nombre }}</a></td>
-                <td class="text-center">{{ edad }}</td>
                 <td>{{ registro.correo }}</td>
                 <td>{{ registro.etapa }}</td>
                 <td>{{ registro.profesor }}</td>

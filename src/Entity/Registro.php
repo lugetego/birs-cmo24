@@ -42,12 +42,6 @@ class Registro
     private $nombre;
 
     /**
-     * @ORM\Column(type="date")
-     * @Assert\NotBlank()
-     */
-    private $nacimiento;
-
-    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      */
@@ -92,6 +86,11 @@ class Registro
      * @ORM\Column(type="text", nullable=true)
      */
     private $comentarios;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $razones;
 
     public function getCorreo(): ?string
     {
@@ -328,15 +327,16 @@ class Registro
         return $this;
     }
 
-    public function getNacimiento(): ?\DateTimeInterface
+    public function getRazones(): ?string
     {
-        return $this->nacimiento;
+        return $this->razones;
     }
 
-    public function setNacimiento(\DateTimeInterface $nacimiento): self
+    public function setRazones(?string $razones): self
     {
-        $this->nacimiento = $nacimiento;
+        $this->razones = $razones;
 
         return $this;
     }
+
 }

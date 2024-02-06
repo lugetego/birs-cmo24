@@ -17,12 +17,6 @@
                     <div class="card-body text-dark">
                         <h5 class="card-title">{{ registro.nombre }} </h5>
 
-
-                        <p class="card-text">
-                            <strong> {{ registro.correo }} </strong> <br>
-                            {% set edad = date().diff(date(registro.nacimiento)).y %}
-                            {{ registro.nacimiento |format_date('long',locale='es') }}, <small><em> {{ edad }} años</em></small>
-                        </p>
                         <p class="card-text">
                             País: <strong> {{ registro.pais }}  </strong> <br>
                         </p>
@@ -42,6 +36,10 @@
                         <p class="card-text">
                             Temas preferidos:<br>
                             <strong>  {{ registro.proyectos|nl2br}} </strong> <br>
+                        </p>
+                        <p class="card-text">
+                            Razones para asistir:<br>
+                            <strong>  {{ registro.razones|nl2br}} </strong> <br>
                         </p>
 
                         <p class="card-text">

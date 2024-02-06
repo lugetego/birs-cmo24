@@ -36,10 +36,6 @@ class RegistroType extends AbstractType
                 'placeholder' => 'Seleccionar',
                 'label'=> 'Etapa profesional']
             )
-            ->add('nacimiento',DateType::class, [
-                'widget' => 'single_text',
-                'label'=> 'Fecha de nacimiento'
-            ])
             ->add('profesor',null,['label'=>'Nombre del supervisor de doctorado o mentor postdoctoral'])
                 ->add('pais', ChoiceType::class, [
                     'choices' => $countries2,
@@ -65,7 +61,9 @@ class RegistroType extends AbstractType
             ))
             ->add('monto', null, array(
                     'label'=>'Monto que solicita en USD',
-                ))
+            ))
+            ->add('razones',null,['label'=>'Razones por las que desa asistir al evento'])
+
 
         ;
     }
