@@ -38,11 +38,8 @@ class RegistroType extends AbstractType
                     'placeholder' => 'Seleccionar',
                     'label'=> 'Etapa profesional']
             )
-            ->add('doctorado', ChoiceType::class,[
-                    'choices'  => $years,
-                    'placeholder' => 'Seleccionar',
-                    'label'=> 'Año de doctorado (o año provisional de doctorado)']
-            )
+  
+            ->add('doctorado',null,['label'=>'Año de doctorado (o año provisional de doctorado)'])
 
 
             ->add('instituciondoc',null,['label'=>'Institución de doctorado'])
