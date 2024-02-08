@@ -18,12 +18,20 @@
                         <h5 class="card-title">{{ registro.nombre }} </h5>
 
                         <p class="card-text">
+                            <small>{{registro.correo}}</small><br>
+                        </p>
+                        <p class="card-text">
+                            <strong> {{ registro.institucion }}, {{ registro.etapa }}  </strong> <br>
+                        </p>
+
+                        <p class="card-text">
                             País: <strong> {{ registro.pais }}  </strong> <br>
                         </p>
 
                         <p class="card-text">
-                           Etapa profesional: <strong>  {{ registro.etapa }}  </strong> <br>
+                            Doctorado en: <strong>{{ registro.instituciondoc }}, {{registro.doctorado}} </strong> <br>
                         </p>
+
 
                         <p class="card-text">
                             Supervisor o mentor: <strong>  {{ registro.profesor }}  </strong> <br>
@@ -44,9 +52,9 @@
 
                         <p class="card-text">
                             {% if registro.viaje == true %}
-                                <i class="fas fa-check-square text-success"></i> Puede viajar por su cuenta
+                                <i class="bi bi-check-circle-fill text-success"></i>  Puede viajar por su cuenta
                             {% else %}
-                                <i class="fas fa-times-square text-danger"></i> No puede viajar por su cuenta, solicita {{ registro.monto }} USD
+                                <i class="bi bi-x-circle-fill text-danger"></i> No puede viajar por su cuenta, solicita {{ registro.monto }} USD
                             {%endif %}
                         </p>
 

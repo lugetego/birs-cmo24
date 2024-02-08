@@ -23,26 +23,38 @@ class RegistroType extends AbstractType
 
             $countries2[$name] = $name;
         }
+        $years = array_combine(range(date("Y"), 1950), range(date("Y"), 1950));
 
-            $builder
+
+        $builder
             ->add('nombre')
             ->add('etapa', ChoiceType::class,[
-                'choices'  => [
-                    'Estudiante de Doctorado' => 'Doctorado',
-                    'Estudiante de Posdoctorado' => 'Posdoctorado',
-                    'Profesor Junior'=>'Profesor Junior',
-                    'Profesor Asistente'=>'Profesor Asistente',
-                ],
-                'placeholder' => 'Seleccionar',
-                'label'=> 'Etapa profesional']
+                    'choices'  => [
+                        'Estudiante de Doctorado' => 'Doctorado',
+                        'Estudiante de Posdoctorado' => 'Posdoctorado',
+                        'Profesor Junior'=>'Profesor Junior',
+                        'Profesor Asistente'=>'Profesor Asistente',
+                    ],
+                    'placeholder' => 'Seleccionar',
+                    'label'=> 'Etapa profesional']
             )
+            ->add('doctorado', ChoiceType::class,[
+                    'choices'  => $years,
+                    'placeholder' => 'Seleccionar',
+                    'label'=> 'Año de doctorado (o año provisional de doctorado)']
+            )
+
+
+            ->add('instituciondoc',null,['label'=>'Institución de doctorado'])
+            ->add('institucion',null,['label'=>'Institución actual'])
+
             ->add('profesor',null,['label'=>'Nombre del supervisor de doctorado o mentor postdoctoral'])
-                ->add('pais', ChoiceType::class, [
-                    'choices' => $countries2,
-                    'label'=>'País de residencia',
-                    'placeholder'  => 'Seleccionar'
-                    ,
-                ])
+            ->add('pais', ChoiceType::class, [
+                'choices' => $countries2,
+                'label'=>'País de residencia',
+                'placeholder'  => 'Seleccionar'
+                ,
+            ])
             ->add('publicaciones',null,['label'=>'Lista de publicaciones'])
             ->add('proyectos',null,['label'=>'Lista de los 3 temas de proyectos preferidos, en el orden de preferencia'])
             ->add('viaje', ChoiceType::class, [
@@ -60,7 +72,7 @@ class RegistroType extends AbstractType
                 'label'=>'Correo electrónico',
             ))
             ->add('monto', null, array(
-                    'label'=>'Monto que solicita en USD',
+                'label'=>'Monto que solicita en USD',
             ))
             ->add('razones',null,['label'=>'¿Por qué quieres asistir a este taller?'])
 

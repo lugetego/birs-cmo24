@@ -50,13 +50,13 @@
             <tr>
                 <th>Nombre</th>
                 <th>Correo</th>
+                <th>País</th>
+                <th>Institución actual</th>
                 <th>Etapa</th>
-                <th>Profesor</th>
-                <th>Pais</th>
-                <th>Publicaciones</th>
-                <th>Proyectos</th>
-                <th>Viaje</th>
-                <th>Monto USD</th>
+                <th>Año doctorado</th>
+                <th>Profesor o mentor</th>
+                <th>Viajar</th>
+                <th>Solicita USD</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -65,13 +65,13 @@
             <tr>
                 <td><a href="{{ path('app_registro_show', {'slug': registro.slug}) }}">{{ registro.nombre }}</a></td>
                 <td>{{ registro.correo }}</td>
-                <td>{{ registro.etapa }}</td>
-                <td>{{ registro.profesor }}</td>
                 <td>{{ registro.pais }}</td>
-                <td>{{ registro.publicaciones|nl2br }}</td>
-                <td>{{ registro.proyectos|nl2br }}</td>
-                <td>{{ registro.viaje ? 'Sí' : 'No' }}</td>
-                <td>{{ registro.monto }}</td>
+                <td>{{ registro.institucion }}</td>
+                <td>{{ registro.etapa }}</td>
+                <td class="text-center">{{ registro.doctorado }}</td>
+                <td>{{ registro.profesor }}</td>
+                <td class="text-center">{{ registro.viaje ? 'Sí' : 'No' }}</td>
+                <td class="text-center">{{ registro.monto }}</td>
                 <td>
                     <a href="{{ path('app_registro_show', {'slug': registro.slug}) }}"><i class="bi bi-search"></i></a>
                 </td>

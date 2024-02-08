@@ -54,6 +54,18 @@ class Registro
     private $profesor;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     */
+    private $instituciondoc;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     */
+    private $institucion;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      */
@@ -91,6 +103,11 @@ class Registro
      * @ORM\Column(type="text", nullable=true)
      */
     private $razones;
+
+    /**
+     * @ORM\Column(type="string", length=4)
+     */
+    private $doctorado;
 
     public function getCorreo(): ?string
     {
@@ -338,5 +355,55 @@ class Registro
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDoctorado()
+    {
+        return $this->doctorado;
+    }
+
+    /**
+     * @param mixed $doctorado
+     */
+    public function setDoctorado($doctorado): void
+    {
+        $this->doctorado = $doctorado;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getInstituciondoc()
+    {
+        return $this->instituciondoc;
+    }
+
+    /**
+     * @param mixed $instituciondoc
+     */
+    public function setInstituciondoc($instituciondoc): void
+    {
+        $this->instituciondoc = $instituciondoc;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstitucion()
+    {
+        return $this->institucion;
+    }
+
+    /**
+     * @param mixed $institucion
+     */
+    public function setInstitucion($institucion): void
+    {
+        $this->institucion = $institucion;
+    }
+
 
 }
