@@ -106,10 +106,10 @@ class Registro
 
     /**
      * @ORM\Column(type="string", length=4)
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=true,
-     *     message="Your name cannot contain a number"
+     * @Assert\Range(
+     *      min = 1930,
+     *      max = 2030,
+     *      notInRangeMessage = "No es un año válido",
      * )
      */
 
