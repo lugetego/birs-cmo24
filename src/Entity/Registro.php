@@ -106,7 +106,12 @@ class Registro
 
     /**
      * @ORM\Column(type="string", length=4)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not valid."
+     * )
      */
+
     private $doctorado;
 
     public function getCorreo(): ?string
