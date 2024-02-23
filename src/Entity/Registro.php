@@ -107,8 +107,8 @@ class Registro
     /**
      * @ORM\Column(type="string", length=4)
      * @Assert\Regex(
-     *     pattern="/\w/",
-     *     match=false,
+     *     pattern="/\d/",
+     *     match=true,
      *     message="Your name cannot contain a number"
      * )
      */
