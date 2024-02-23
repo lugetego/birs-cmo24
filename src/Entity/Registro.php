@@ -106,9 +106,9 @@ class Registro
 
     /**
      * @ORM\Column(type="string", length=4)
-     * @Assert\Type(
-     *     type="integer",
-     *     message="The value {{ value }} is not valid."
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     message="Your name cannot contain a number"
      * )
      */
 
