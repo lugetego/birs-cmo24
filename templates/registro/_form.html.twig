@@ -154,19 +154,21 @@
 
 
     <div class="col-4" id="div_registro_monto">
-            <label for="monto" class="form-label">{{ form_label(form.monto) }}</label>
-            {{ form_widget(form.monto,{
-                'attr': {'class': 'form-control',
-                    'placeholder': 'Monto que solicita en USD',
-                } } ) }}
-            <div class="invalid-error">
-                {{ form_errors(form.monto) }}
-            </div>
+        <label for="monto" class="form-label">{{ form_label(form.monto) }}</label>
+        {{ form_widget(form.monto,{
+            'attr': {'class': 'form-control',
+                'placeholder': 'Monto que solicita en USD',
+            } } ) }}
+        <div class="invalid-error">
+            {{ form_errors(form.monto) }}
         </div>
+    </div>
 
 
     {{ form_widget(form) }}
-    <button class="mt-5 mb-5 w-100 btn btn-primary btn-lg"><i class="bi bi-send-fill"></i> {{ button_label|default('Enviar') }}</button>
-
+    <button class="mt-5 mb-3 w-100 btn btn-primary btn-lg"><i class="bi bi-send-fill"></i> {{ button_label|default('Enviar') }}</button>
+    <div class="text-center mt-2 mb-2">
+    <a href="https://matmor.unam.mx/aviso-simplificado" target="_blank" class="">Aviso de privacidad</a>
+    </div>
     {{ form_end(form) }}
 </div>
